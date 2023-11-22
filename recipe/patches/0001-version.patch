@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 445f953..f867351 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
+ 
+ [project]
+ name = "conda-auth"
+-version = "0.1.0"
++version = "0.2.0"
+ description = "A conda plugin for handling multiple authentication schemes"
+ requires-python = ">=3.8"
+ license = {file = "LICENSE"}

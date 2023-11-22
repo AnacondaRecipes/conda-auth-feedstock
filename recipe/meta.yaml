@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/conda-incubator/{{ name }}/archive/refs/tags/{{ version}}.tar.gz
   sha256: ec0e26ac671f71069529696c6a4c67be5d1d92d79393091095559289fd11a3da
+  patches:
+    - patches/0001-version.patch
 
 build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
@@ -15,6 +17,9 @@ build:
   skip: true # [py<38]
 
 requirements:
+  build:
+    - patch # [unix]
+    - m2-patch # [win]
   host:
     - python
     - pip
