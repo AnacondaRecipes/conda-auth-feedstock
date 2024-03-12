@@ -18,7 +18,6 @@ requirements:
     - python
     - pip
     - setuptools
-    - wheel
     - hatchling >=1.21.1
     - hatch-vcs >=0.3.0
   run:
