@@ -1,16 +1,13 @@
 {% set name = "conda-auth" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-incubator/{{ name }}/archive/refs/tags/{{ version}}.tar.gz
-  sha256: ec0e26ac671f71069529696c6a4c67be5d1d92d79393091095559289fd11a3da
-  patches:
-    - patches/0001-version.patch
-
+  url: https://github.com/conda-incubator/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: c0520d782f99f5c70fcccc3ada84091e75788d49c67cc61586a66b60653cc6f3
 build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
   number: 0
@@ -26,13 +23,17 @@ requirements:
     - setuptools-scm
     - setuptools
     - wheel
+    - hatchling
+    - hatch-vcs
   run:
     - python
     - click
     - conda >=23.9.0
     - keyring
     - requests
-    - ruamel.yaml
+    - ruamel.yaml<0.18
+    - hatchling
+    - hatch-vcs
 
 test:
   imports:
