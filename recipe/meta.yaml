@@ -18,7 +18,7 @@ requirements:
     - python
     - pip
     - setuptools
-    - hatchling >=1.21.1
+    - hatchling
     - hatch-vcs >=0.3.0
   run:
     - python
