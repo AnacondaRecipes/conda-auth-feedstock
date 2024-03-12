@@ -19,7 +19,7 @@ requirements:
     - pip
     - setuptools
     - hatchling
-    - hatch-vcs >=0.3.0
+    - hatch-vcs
   run:
     - python
     - click
