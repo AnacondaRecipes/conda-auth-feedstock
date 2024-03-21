@@ -25,7 +25,7 @@ requirements:
     - click
     - conda >=23.9.0
     - keyring
-    - keyring-alt # [linux]
+    - keyring.alt # [linux]
     - requests
     - ruamel.yaml <0.18
 
