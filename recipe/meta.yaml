@@ -37,13 +37,14 @@ test:
     - conda auth logout --help
   requires:
     - pip
+    - keyrings.alt # [linux]
 
 about:
   home: https://conda-incubator.github.io/conda-auth/
   summary: Conda plugin for improved access to private channels
   description: |
     Conda auth is a conda plugin which adds more secure authentication support to conda.
-    Once installed, it provides two new commands you can use to manage credentials and 
+    Once installed, it provides two new commands you can use to manage credentials and
     access private conda channels:
       - conda auth login for logging into a private channel and storing your credentials
       - conda auth logout for logging out of a private channel and removing your credentials
