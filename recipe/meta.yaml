@@ -10,8 +10,9 @@ source:
   sha256: c0520d782f99f5c70fcccc3ada84091e75788d49c67cc61586a66b60653cc6f3
 build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
-  number: 0
-  skip: true # [py<38]
+  number: 1
+  # ruamel.yaml <0.18 isn't available for py313+
+  skip: true # [py<38 or py>313]
 
 requirements:
   host:
@@ -25,7 +26,7 @@ requirements:
     - conda >=23.9.0
     - keyring
     - requests
-    - ruamel.yaml
+    - ruamel.yaml <0.18
 
 test:
   imports:
