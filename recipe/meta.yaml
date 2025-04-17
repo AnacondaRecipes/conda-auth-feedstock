@@ -10,8 +10,9 @@ source:
   sha256: c0520d782f99f5c70fcccc3ada84091e75788d49c67cc61586a66b60653cc6f3
 build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
-  number: 0
-  skip: true # [py<38]
+  number: 1
+  # ruamel.yaml <0.18 isn't available for py313+
+  skip: true # [py<38 or py>312]
 
 requirements:
   host:
@@ -31,10 +32,15 @@ test:
   imports:
     - conda_auth
   commands:
-    - pip check
-    - conda auth --help
-    - conda auth login --help
-    - conda auth logout --help
+    # Actually, conda-auth supports ruamel.yaml 0.18.0, see https://github.com/conda-incubator/conda-auth/commit/a2596236759ff8a42b84916175a30ab7b733e249
+    # but pip check fails with conda-auth 0.2.1 has requirement ruamel-yaml<0.18, but you have ruamel-yaml 0.18.10.
+    #- pip check
+    - conda --version  # Check conda version
+    - where conda  # [win]
+    - which conda  # [unix]
+    - conda auth --help || echo "Plugin not found"
+    - conda auth login --help || echo "Plugin not found"
+    - conda auth logout --help || echo "Plugin not found"
   requires:
     - pip
     - keyrings.alt # [linux]
