@@ -36,8 +36,8 @@ test:
     # but pip check fails with conda-auth 0.2.1 has requirement ruamel-yaml<0.18, but you have ruamel-yaml 0.18.10.
     #- pip check
     - conda --version  # Check conda version
-    - where conda  # On Windows
-    - which conda  # On Unix
+    - where conda  # [win]
+    - which conda  # [unix]
     - conda --plugins  # List available plugins
     - conda auth --help
     - conda auth login --help
