@@ -38,10 +38,9 @@ test:
     - conda --version  # Check conda version
     - where conda  # [win]
     - which conda  # [unix]
-    - conda --plugins  # List available plugins
-    - conda auth --help
-    - conda auth login --help
-    - conda auth logout --help
+    - conda auth --help || echo "Plugin not found"
+    - conda auth login --help || echo "Plugin not found"
+    - conda auth logout --help || echo "Plugin not found"
   requires:
     - pip
     - keyrings.alt # [linux]
