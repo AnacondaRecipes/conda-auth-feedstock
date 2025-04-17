@@ -12,7 +12,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
   number: 1
   # ruamel.yaml <0.18 isn't available for py313+
-  skip: true # [py<38 or py>313]
+  skip: true # [py<38 or py>312]
 
 requirements:
   host:
