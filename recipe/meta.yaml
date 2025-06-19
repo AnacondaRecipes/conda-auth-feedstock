@@ -38,9 +38,10 @@ test:
     - conda_auth
   commands:
     - pip check
-    - conda auth --help
-    - conda auth login --help
-    - conda auth logout --help
+    # As with all conda plugins, this must be installed into the base environment
+    #- conda auth --help
+    #- conda auth login --help
+    #- conda auth logout --help
   requires:
     - pip
     - keyrings.alt # [linux]
