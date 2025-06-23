@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 8c882dc..8cd8260 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -27,7 +27,7 @@ dependencies = [
+   "conda",
+   "keyring",
+   "requests",
+-  "ruamel.yaml<0.18",
++  "ruamel.yaml<0.19",
+ ]
+ 
+ [project.entry-points.conda]
