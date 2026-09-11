@@ -17,8 +17,6 @@ build:
   skip: true # [py<38]
 
 requirements:
-  build:
-    - patch # [unix]
   host:
     - python
     - pip
