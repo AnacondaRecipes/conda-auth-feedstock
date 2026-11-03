@@ -1,5 +1,5 @@
 {% set name = "conda-auth" %}
-{% set version = "0.2.1" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/conda-incubator/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
-  sha256: c0520d782f99f5c70fcccc3ada84091e75788d49c67cc61586a66b60653cc6f3
+  sha256: 94080fc7a5a38c40b31d346383579e5c0ffc359e03463fecd30d695f12d05440
   patches:
     - loosen_ruamel_bound.patch
 
 build:
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
-  number: 2
+  number: 0
   skip: true # [py<38]
 
 requirements:
@@ -33,6 +33,9 @@ requirements:
 test:
   imports:
     - conda_auth
+    - conda_auth.cli
+    - conda_auth.handlers
+    - conda_auth.storage
   commands:
     - pip check
     - python -m conda auth --help
